@@ -63,7 +63,7 @@ Honeypot reproducible y endurecido para Raspberry Pi basado en **OpenCanary** (
 
 ## Requisitos
 
-- **Hardware**: Raspberry Pi 3B+ o superior (recomendado Pi 4/5), 2 GB RAM mínimo.
+- **Hardware**: Raspberry Raspberry Pi 2 Model B o superior, 2 GB RAM mínimo.
 - **SO**: Raspberry Pi OS (64-bit) o Ubuntu Server (ARM64).
 - **Software**: Docker Engine y Docker Compose Plugin instalados.
 - **Red**: IP estática o reserva DHCP para la Pi; segmento aislado o VLAN dedicada recomendado.
