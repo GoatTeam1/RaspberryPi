@@ -1,0 +1,48 @@
+version: "3.9"
+services:
+  opencanary:
+    build: ./opencanary
+    container_name: opencanary
+    restart: unless-stopped
+    network_mode: host 
+    environment:
+      TZ: ${TZ}
+      NODE_ID: ${NODE_ID}
+      HOST_IP: ${HOST_IP}
+
+      FTP_ENABLED: ${FTP_ENABLED}
+      FTP_PORT: ${FTP_PORT}
+      HTTP_ENABLED: ${HTTP_ENABLED}
+      HTTP_PORT: ${HTTP_PORT}
+      TELNET_ENABLED: ${TELNET_ENABLED}
+      TELNET_PORT: ${TELNET_PORT}
+      SSH_ENABLED: ${SSH_ENABLED}
+      SSH_PORT: ${SSH_PORT}
+      MYSQL_ENABLED: ${MYSQL_ENABLED}
+      MYSQL_PORT: ${MYSQL_PORT}
+      SMB_ENABLED: ${SMB_ENABLED}
+      SMB_PORT: ${SMB_PORT}
+      RDP_ENABLED: ${RDP_ENABLED}
+      RDP_PORT: ${RDP_PORT}
+      NTP_ENABLED: ${NTP_ENABLED}
+      NTP_PORT: ${NTP_PORT}
+      TFTP_ENABLED: ${TFTP_ENABLED}
+      TFTP_PORT: ${TFTP_PORT}
+
+      ENABLE_SMTP: ${ENABLE_SMTP}
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_PORT: ${SMTP_PORT}
+      SMTP_USERNAME: ${SMTP_USERNAME}
+      SMTP_PASSWORD: ${SMTP_PASSWORD}
+      ALERT_FROM: ${ALERT_FROM}
+      ALERT_TO: ${ALERT_TO}
+
+      ENABLE_WEBHOOK: ${ENABLE_WEBHOOK}
+      WEBHOOK_URL: ${WEBHOOK_URL}
+
+      ENABLE_SYSLOG: ${ENABLE_SYSLOG}
+      SYSLOG_HOST: ${SYSLOG_HOST}
+      SYSLOG_PORT: ${SYSLOG_PORT}
+    volumes:
+      - ./data:/data
+
