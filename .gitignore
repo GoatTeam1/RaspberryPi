@@ -1,0 +1,100 @@
+# ─────────────────────────────
+# SentinelPi — .gitignore
+# ─────────────────────────────
+
+# SO / Editores
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+*.code-workspace
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.envrc
+.pytype/
+.mypy_cache/
+.pytest_cache/
+.tox/
+.coverage
+.cache/
+
+# Build / empaquetado
+build/
+dist/
+.eggs/
+*.egg-info/
+
+# Logs (global)
+logs/
+*.log
+*.log.*
+*.out
+*.err
+
+# Docker / Compose
+docker-compose.override.yml
+docker-compose.*.yml
+.docker/
+# Entornos
+.env
+.env.*
+!.env.example     # versiona solo la plantilla de variables
+# Ignora contexto local opcional
+**/.docker-local/
+
+# Datos de ejecución del honeypot
+/data/
+!/data/.gitkeep   # permite versionar el directorio vacío si agregas este marcador
+opencanary/opencanary.conf      # archivo generado (no versionar)
+# Si en algún flujo generas dumps/pcaps:
+*.pcap
+*.pcapng
+
+# Claves y certificados (no versionar nunca)
+*.pem
+*.key
+*.crt
+*.cer
+*.der
+*.pfx
+*.p12
+*.jks
+secrets/
+*.secret
+*.secrets
+*.enc
+*.age
+
+# Archivos temporales y backups
+*.tmp
+*.temp
+*.bak
+*.old
+*.orig
+*.rej
+*.swp
+*.swo
+
+# Archivos comprimidos y artefactos de exportación
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.xz
+
+# Bases de datos locales (por si agregas tooling auxiliar)
+*.sqlite
+*.sqlite3
+*.db
+
+# Sistemas de plantillas/artefactos que no quieras versionar
+*.generated
+*.rendered

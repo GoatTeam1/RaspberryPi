@@ -315,9 +315,3 @@ Técnicamente sí, pero **no recomendado** sin una DMZ/vuln‑lab y monitoreo co
 ## Advertencias legales
 
 Opera SentinelPi únicamente en redes que administras y con autorización explícita. No ejecutes artefactos capturados en la misma máquina del honeypot. Cumple las leyes y políticas internas aplicables. El equipo mantenedor no se hace responsable del uso indebido.
-
----
-
-## Licencia
-
-Este proyecto se publica bajo **MIT License** por defecto. Puedes reemplazar la licencia según políticas de tu organización.
