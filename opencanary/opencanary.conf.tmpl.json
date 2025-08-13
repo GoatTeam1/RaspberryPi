@@ -1,0 +1,59 @@
+{
+  "device.node_id": "${NODE_ID}",
+  "ip.ignorelist": ["127.0.0.1", "${HOST_IP}"],
+
+  "ftp.enabled": ${FTP_ENABLED},
+  "ftp.port": ${FTP_PORT},
+  "ftp.banner": "FTP server ready",
+
+  "http.enabled": ${HTTP_ENABLED},
+  "http.port": ${HTTP_PORT},
+  "http.banner": "Apache/2.4.52 (Debian)",
+  "http.skin": "nasLogin",
+  "http.skin.list": [
+    {"desc": "Plain HTML Login", "name": "basicLogin"},
+    {"desc": "Synology NAS Login", "name": "nasLogin"}
+  ],
+
+  "telnet.enabled": ${TELNET_ENABLED},
+  "telnet.port": ${TELNET_PORT},
+
+  "ssh.enabled": ${SSH_ENABLED},
+  "ssh.port": ${SSH_PORT},
+  "ssh.version": "SSH-2.0-OpenSSH_7.4",
+
+  "mysql.enabled": ${MYSQL_ENABLED},
+  "mysql.port": ${MYSQL_PORT},
+  "mysql.banner": "5.7.31-0ubuntu0.18.04.1",
+
+  "smb.enabled": ${SMB_ENABLED},
+  "smb.port": ${SMB_PORT},
+
+  "rdp.enabled": ${RDP_ENABLED},
+  "rdp.port": ${RDP_PORT},
+
+  "ntp.enabled": ${NTP_ENABLED},
+  "ntp.port": ${NTP_PORT},
+
+  "tftp.enabled": ${TFTP_ENABLED},
+  "tftp.port": ${TFTP_PORT},
+
+  "portscan.enabled": false,
+
+  "logger": {
+    "class": "PyLogger",
+    "kwargs": {
+      "formatters": {
+        "plain": {"format": "%(message)s"}
+      },
+      "handlers": {
+        "file": {
+          "class": "logging.FileHandler",
+          "kwargs": {"filename": "/data/opencanary.log"},
+          "formatter": "plain"
+        }
+        /* SMTP / Webhook / Syslog se inyectan dinámicamente si están habilitados */
+      }
+    }
+  }
+}
