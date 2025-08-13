@@ -33,6 +33,7 @@ Honeypot reproducible y endurecido para Raspberry Pi basado en **OpenCanary** (
 - [Solución de problemas](#solución-de-problemas)
 - [Preguntas frecuentes](#preguntas-frecuentes)
 - [Hoja de ruta](#hoja-de-ruta)
+- [Glosario de términos](#glosario-de-términos)
 - [Advertencias legales](#advertencias-legales)
 - [Licencia](#licencia)
 
@@ -280,6 +281,34 @@ Técnicamente sí, pero **no recomendado** sin una DMZ/vuln‑lab y monitoreo co
 - Servicio opcional Cowrie para SSH/Telnet de alta interacción.
 - Dashboard de métricas (Grafana/Prometheus) opcional.
 - Playbooks de IR para eventos comunes (credential stuffing, escaneo, RDP/SMB probes).
+
+---
+
+## Glosario de términos
+
+- **Honeypot**: sistema señuelo diseñado para atraer, registrar y estudiar actividades maliciosas, sin prestar servicios productivos reales.
+- **OpenCanary**: honeypot *low‑interaction* en Python que emula múltiples servicios y genera eventos estructurados. Es ligero y sencillo de desplegar.
+- **Cowrie**: honeypot de **alta interacción** para SSH/Telnet que permite sesiones falsas y captura de comandos/archivos. Complementa a OpenCanary.
+- **T‑Pot**: distribución que agrupa varios honeypots e integraciones; mayor cobertura pero más consumo y complejidad.
+- **Low‑interaction vs High‑interaction**: los primeros simulan protocolos y responden con banners/respuestas simples; los segundos permiten interacción más profunda (sesiones, archivos), elevando valor forense y riesgo.
+- **Docker**: plataforma de contenedores que empaqueta aplicaciones con sus dependencias para ejecución aislada y reproducible.
+- **Docker Compose**: herramienta para definir y ejecutar aplicaciones multi‑contenedor usando un archivo `docker-compose.yml`.
+- **`network_mode: host`**: modo de red de Docker que hace que el contenedor comparta la pila de red del host (Linux), evitando NAT y exponiendo puertos directamente.
+- **NAT (Network Address Translation)**: traducción de direcciones/puertos que puede interferir con la verosimilitud de algunos honeypots cuando se hace *port‑mapping*.
+- **SIEM (Security Information and Event Management)**: plataforma que centraliza, normaliza y correlaciona eventos de seguridad para detección y respuesta.
+- **Syslog**: protocolo de registro de eventos (UDP/TCP 514) ampliamente soportado por sistemas y dispositivos de red.
+- **Webhook**: mecanismo de **push** vía HTTP/HTTPS donde un sistema envía eventos a una URL destino (por ejemplo, a un ingestor propio o a un servidor de automatización).
+- **SMTP**: protocolo de correo saliente. En entornos con autenticación moderna (por ejemplo Gmail), se recomienda usar **App Password** en lugar de la contraseña de la cuenta.
+- **VLAN**: red local virtual que segmenta el tráfico dentro de la misma infraestructura física para aislar dominios de broadcast y reducir superficie de ataque lateral.
+- **DMZ (Demilitarized Zone)**: zona de red perimetral separada de la red interna, pensada para exponer servicios de forma controlada.
+- **Banner**: cadena de identificación que ciertos servicios muestran al conectarse (versión, producto). En honeypots ayuda a simular software verosímil.
+- **Skin**: apariencia o *plantilla* de interfaz (p. ej., pantalla de login HTTP). OpenCanary incluye algunas para simular dispositivos/servicios.
+- **JSON Lines (JSONL)**: formato donde cada línea del archivo es un objeto JSON independiente; útil para procesar y enviar a SIEMs.
+- **Logrotate**: herramienta de Linux para rotar, comprimir y gestionar historiales de logs.
+- **Servicios emulados comunes**:
+  - **HTTP (80)**, **Telnet (23)**, **SSH (22)**, **FTP (21)**, **MySQL (3306)**, **SMB (445)**, **RDP (3389)**, **TFTP (69)**, **NTP (123)**.
+- **Nmap**: escáner de red usado para descubrir hosts y servicios (útil para verificar exposición del honeypot).
+- **Hash de integridad**: firma (por ejemplo, SHA‑256) para garantizar que un archivo de log no ha sido alterado después de su recolección.
 
 ---
 
